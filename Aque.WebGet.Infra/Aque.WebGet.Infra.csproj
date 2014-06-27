@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{7F4F4646-E2F4-4EFC-AC93-94710BD9A15D}</ProjectGuid>
+    <ProjectGuid>{5540F41F-CFD6-4CFA-A4AD-2B8AEDC15E7C}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Aque.WebGet.Core</RootNamespace>
-    <AssemblyName>Aque.WebGet.Core</AssemblyName>
+    <RootNamespace>Aque.WebGet.Infra</RootNamespace>
+    <AssemblyName>Aque.WebGet.Infra</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -30,6 +30,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="HtmlAgilityPack">
+      <HintPath>..\packages\HtmlAgilityPack.1.4.6\lib\Net45\HtmlAgilityPack.dll</HintPath>
+    </Reference>
+    <Reference Include="LINQtoCSV">
+      <HintPath>..\packages\LINQtoCSV.1.5.0.0\lib\net35\LINQtoCSV.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -39,20 +45,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Domain\Engine.cs" />
-    <Compile Include="Domain\IEngine.cs" />
-    <Compile Include="Services\ICsvService.cs" />
-    <Compile Include="Services\IWebCrawlerService.cs" />
-    <Compile Include="Services\ISelectorsService.cs" />
-    <Compile Include="Services\IUrlsService.cs" />
-    <Compile Include="Events\ScanCompletedEventArgs.cs" />
-    <Compile Include="Events\ScanCompletedStatus.cs" />
-    <Compile Include="Models\NodeModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Services\SelectorsService.cs" />
-    <Compile Include="Services\UrlsService.cs" />
+    <Compile Include="Services\CsvService.cs" />
+    <Compile Include="Services\WebCrawlerService.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Aque.WebGet.Core\Aque.WebGet.Core.csproj">
+      <Project>{7f4f4646-e2f4-4efc-ac93-94710bd9a15d}</Project>
+      <Name>Aque.WebGet.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

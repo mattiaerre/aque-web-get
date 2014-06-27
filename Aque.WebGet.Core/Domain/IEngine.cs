@@ -7,7 +7,8 @@ namespace Aque.WebGet.Core.Domain
 	public interface IEngine
 	{
 		event EventHandler ScanCompleted;
-		IEnumerable<TagModel> Tags { get; }
+		IEnumerable<NodeModel> Nodes { get; }
+		void Init();
 		void Scan();
 	}
 }

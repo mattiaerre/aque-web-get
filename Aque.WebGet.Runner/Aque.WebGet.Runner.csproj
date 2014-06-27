@@ -4,15 +4,16 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{7F4F4646-E2F4-4EFC-AC93-94710BD9A15D}</ProjectGuid>
-    <OutputType>Library</OutputType>
+    <ProjectGuid>{D68BCE65-EDF9-4C94-979C-C8F8D2A050FD}</ProjectGuid>
+    <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Aque.WebGet.Core</RootNamespace>
-    <AssemblyName>Aque.WebGet.Core</AssemblyName>
+    <RootNamespace>Aque.WebGet.Runner</RootNamespace>
+    <AssemblyName>Aque.WebGet.Runner</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -22,6 +23,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -39,20 +41,36 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Domain\Engine.cs" />
-    <Compile Include="Domain\IEngine.cs" />
-    <Compile Include="Services\ICsvService.cs" />
-    <Compile Include="Services\IWebCrawlerService.cs" />
-    <Compile Include="Services\ISelectorsService.cs" />
-    <Compile Include="Services\IUrlsService.cs" />
-    <Compile Include="Events\ScanCompletedEventArgs.cs" />
-    <Compile Include="Events\ScanCompletedStatus.cs" />
-    <Compile Include="Models\NodeModel.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Services\SelectorsService.cs" />
-    <Compile Include="Services\UrlsService.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Aque.WebGet.Core\Aque.WebGet.Core.csproj">
+      <Project>{7f4f4646-e2f4-4efc-ac93-94710bd9a15d}</Project>
+      <Name>Aque.WebGet.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Aque.WebGet.Infra\Aque.WebGet.Infra.csproj">
+      <Project>{5540f41f-cfd6-4cfa-a4ad-2b8aedc15e7c}</Project>
+      <Name>Aque.WebGet.Infra</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Data\README.txt" />
+    <Content Include="Data\sitemap-small.xml" />
+    <Content Include="Data\sitemap.xml" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

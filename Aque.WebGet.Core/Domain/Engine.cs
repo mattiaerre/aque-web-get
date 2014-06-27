@@ -17,10 +17,12 @@ namespace Aque.WebGet.Core.Domain
 
 		private IEnumerable<string> _selectors = Enumerable.Empty<string>();
 		private IEnumerable<string> _urls = Enumerable.Empty<string>();
-		private IEnumerable<TagModel> _tags = Enumerable.Empty<TagModel>();
-		public IEnumerable<TagModel> Tags
+		private readonly List<NodeModel> _nodes = new List<NodeModel>();
+		private int _urlsRemaining;
+
+		public IEnumerable<NodeModel> Nodes
 		{
-			get { return _tags; }
+			get { return _nodes; }
 		}
 
 		public Engine(ISelectorsService selectorsService, IUrlsService urlsService, IWebCrawlerService webCrawlerService)
@@ -32,18 +34,31 @@ namespace Aque.WebGet.Core.Domain
 
 		private void _webCrawlerService_CrawlCompleted(object sender, EventArgs e)
 		{
-			_tags = _webCrawlerService.TagsList;
-			// info: no need to specify empty list
-			ScanCompleted(this, new ScanCompletedEventArgs(ScanCompletedStatus.Successfully));
+			_nodes.AddRange(_webCrawlerService.NodeList);
+			if (_urlsRemaining == 0)
+				ScanCompleted(this, new ScanCompletedEventArgs(ScanCompletedStatus.Successfully));
 		}
 
 		private void _urlsService_LoadUrlListCompleted(object sender, EventArgs e)
 		{
-			_urls = _urlsService.UrlList;
+			_urls = _urlsService.UrlList.ToList();
+			_urlsRemaining = _urls.Count();
 			if (!_urls.Any())
 				ScanCompleted(this, new ScanCompletedEventArgs(ScanCompletedStatus.UrlListEmpty));
 			else
-				_webCrawlerService.Crawl();
+			{
+				foreach (var url in _urls)
+				{
+					var list = new List<string>();
+					foreach (var selector in _selectors)
+					{
+						// todo: make this configurable as well
+						list.Add(string.Format("//div[@class='{0}']", selector));
+					}
+					_urlsRemaining = _urlsRemaining - 1;
+					_webCrawlerService.Crawl(url, list);
+				}
+			}
 		}
 
 		private void _selectorsService_LoadSelectorListCompleted(object sender, EventArgs e)
@@ -55,21 +70,16 @@ namespace Aque.WebGet.Core.Domain
 				_urlsService.LoadUrlList();
 		}
 
-		public void Scan()
+		public void Init()
 		{
-			// todo: move into init method ???
 			_selectorsService.LoadSelectorListCompleted += _selectorsService_LoadSelectorListCompleted;
 			_urlsService.LoadUrlListCompleted += _urlsService_LoadUrlListCompleted;
 			_webCrawlerService.CrawlCompleted += _webCrawlerService_CrawlCompleted;
+		}
 
-			try
-			{
-				_selectorsService.LoadSelectorList();
-			}
-			catch (Exception ex)
-			{
-				ScanCompleted(this, new ScanCompletedEventArgs(ScanCompletedStatus.WithErrors, ex));
-			}
+		public void Scan()
+		{
+			_selectorsService.LoadSelectorList();
 		}
 	}
 }

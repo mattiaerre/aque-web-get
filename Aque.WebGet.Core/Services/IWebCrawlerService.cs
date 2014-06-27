@@ -7,7 +7,7 @@ namespace Aque.WebGet.Core.Services
 	public interface IWebCrawlerService
 	{
 		event EventHandler CrawlCompleted;
-		IEnumerable<TagModel> TagsList { get; }
-		void Crawl();
+		IEnumerable<NodeModel> NodeList { get; }
+		void Crawl(string url, IEnumerable<string> xpaths);
 	}
 }

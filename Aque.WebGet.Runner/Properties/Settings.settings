@@ -1,0 +1,18 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Aque.WebGet.Runner.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="Selectors" Type="System.String" Scope="User">
+      <Value Profile="(Default)">mcfc-advert</Value>
+    </Setting>
+    <Setting Name="SiteMapPath" Type="System.String" Scope="User">
+      <Value Profile="(Default)">D:\Users\mattia\Source\Repos\Aque.WebGet\Aque.WebGet.Runner\Data\sitemap-small.xml</Value>
+    </Setting>
+    <Setting Name="CsvBasePath" Type="System.String" Scope="User">
+      <Value Profile="(Default)">D:\TMP</Value>
+    </Setting>
+    <Setting Name="CsvFileName" Type="System.String" Scope="User">
+      <Value Profile="(Default)">20140627</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

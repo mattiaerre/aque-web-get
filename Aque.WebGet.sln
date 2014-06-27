@@ -7,6 +7,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aque.WebGet.Core", "Aque.We
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aque.WebGet.Core.Tests", "Aque.WebGet.Core.Tests\Aque.WebGet.Core.Tests.csproj", "{A596C162-8C11-45E6-9B81-CCE633627F57}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aque.WebGet.Infra", "Aque.WebGet.Infra\Aque.WebGet.Infra.csproj", "{5540F41F-CFD6-4CFA-A4AD-2B8AEDC15E7C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aque.WebGet.Infra.Tests", "Aque.WebGet.Infra.Tests\Aque.WebGet.Infra.Tests.csproj", "{8CD440B8-1556-419B-9E26-FD4BFD222A30}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aque.WebGet.Runner", "Aque.WebGet.Runner\Aque.WebGet.Runner.csproj", "{D68BCE65-EDF9-4C94-979C-C8F8D2A050FD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +27,18 @@ Global
 		{A596C162-8C11-45E6-9B81-CCE633627F57}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A596C162-8C11-45E6-9B81-CCE633627F57}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A596C162-8C11-45E6-9B81-CCE633627F57}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5540F41F-CFD6-4CFA-A4AD-2B8AEDC15E7C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5540F41F-CFD6-4CFA-A4AD-2B8AEDC15E7C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5540F41F-CFD6-4CFA-A4AD-2B8AEDC15E7C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5540F41F-CFD6-4CFA-A4AD-2B8AEDC15E7C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8CD440B8-1556-419B-9E26-FD4BFD222A30}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8CD440B8-1556-419B-9E26-FD4BFD222A30}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8CD440B8-1556-419B-9E26-FD4BFD222A30}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8CD440B8-1556-419B-9E26-FD4BFD222A30}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D68BCE65-EDF9-4C94-979C-C8F8D2A050FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D68BCE65-EDF9-4C94-979C-C8F8D2A050FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D68BCE65-EDF9-4C94-979C-C8F8D2A050FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D68BCE65-EDF9-4C94-979C-C8F8D2A050FD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
