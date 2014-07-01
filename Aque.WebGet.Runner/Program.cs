@@ -11,13 +11,17 @@ namespace Aque.WebGet.Runner
 	{
 		private static IEngine _engine;
 		private static ICsvService _service;
+		private const string DateTimeFormat = "dd/MM/yyyy HH:mm:ss.fff";
 
 		private static void Bootstrap()
 		{
+			// todo: add container
+
 			var selectors = Settings.Default.Selectors;
 			var selectorsService = new SelectorsService(selectors);
 			var map = XElement.Load(Settings.Default.SiteMapPath);
-			XNamespace xNamespace = "http://www.sitemaps.org/schemas/sitemap/0.9";
+			//XNamespace xNamespace = "http://www.sitemaps.org/schemas/sitemap/0.9";
+			XNamespace xNamespace = string.Empty;
 			var urlsService = new UrlsService(map, xNamespace);
 			var webCrawlerService = new WebCrawlerService();
 			_engine = new Engine(selectorsService, urlsService, webCrawlerService);
@@ -31,6 +35,8 @@ namespace Aque.WebGet.Runner
 		public static void Main(string[] args)
 		{
 			Bootstrap();
+			Console.WriteLine("start: {0}", DateTime.UtcNow.ToString(DateTimeFormat));
+			Console.WriteLine("waiting for export to complete ...");
 			try
 			{
 				_engine.Init();
@@ -61,6 +67,7 @@ namespace Aque.WebGet.Runner
 		private static void service_ExportCompleted(object sender, EventArgs e)
 		{
 			Console.WriteLine("export completed");
+			Console.WriteLine("stop: {0}", DateTime.UtcNow.ToString(DateTimeFormat));
 			Console.ReadLine();
 		}
 	}

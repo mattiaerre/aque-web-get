@@ -6,7 +6,7 @@
       <Value Profile="(Default)">mcfc-advert</Value>
     </Setting>
     <Setting Name="SiteMapPath" Type="System.String" Scope="User">
-      <Value Profile="(Default)">D:\Users\mattia\Source\Repos\Aque.WebGet\Aque.WebGet.Runner\Data\sitemap-small.xml</Value>
+      <Value Profile="(Default)">D:\Users\mattia\Source\Repos\Aque.WebGet\Aque.WebGet.Runner\Data\sitemap-from-sitecore.xml</Value>
     </Setting>
     <Setting Name="CsvBasePath" Type="System.String" Scope="User">
       <Value Profile="(Default)">D:\TMP</Value>

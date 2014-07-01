@@ -37,8 +37,8 @@ namespace Aque.WebGet.Runner.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("D:\\Users\\mattia\\Source\\Repos\\Aque.WebGet\\Aque.WebGet.Runner\\Data\\sitemap-small.xm" +
-            "l")]
+        [global::System.Configuration.DefaultSettingValueAttribute("D:\\Users\\mattia\\Source\\Repos\\Aque.WebGet\\Aque.WebGet.Runner\\Data\\sitemap-from-sit" +
+            "ecore.xml")]
         public string SiteMapPath {
             get {
                 return ((string)(this["SiteMapPath"]));

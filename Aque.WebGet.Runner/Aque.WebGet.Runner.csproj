@@ -68,6 +68,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Data\README.txt" />
+    <Content Include="Data\sitemap-from-sitecore.xml" />
     <Content Include="Data\sitemap-small.xml" />
     <Content Include="Data\sitemap.xml" />
   </ItemGroup>
